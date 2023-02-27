@@ -7,23 +7,30 @@ civ_list = [
     discord.SelectOption(label="India Chandragupta", emoji="<:1065756632140750889>"),
     discord.SelectOption(label="Persia Cyrus", emoji="<:1065811506702327919>"),
     discord.SelectOption(label="Persia Nader", emoji="<:1065811511118942258>"),
+
     discord.SelectOption(label="Egypt Ptolemaic Cleopatra", emoji="<:1074776975899627652>"),
     discord.SelectOption(label="Egypt Ramses", emoji="<:1074775312153464963>"),
     discord.SelectOption(label="Sumeria Gilgamesh", emoji="<:1065811548444049518>"),
-    discord.SelectOption(label="Gorgo", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="Gran-Colombia", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="Hojo-Tokimune", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="Indonesia", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="Khmer", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="Korea", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="Maya", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="Mbande", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="Nader-Shah", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="Nubia", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="Persia", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="Poland", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="EPtolemaic-Cleopatra", emoji="<:AmericaAbrahamLincoln:1078426690365182042>"),
-    discord.SelectOption(label="Zulu", emoji="<:AmericaAbrahamLincoln:1078426690365182042>")
+    discord.SelectOption(label="Mongolia Genghis Khan", emoji="<:1065756676621344778>"),
+    discord.SelectOption(label="Mongolia Kublai Khan", emoji="<:1065756680144568320>"),
+
+    discord.SelectOption(label="Mapuche Lautaro", emoji="<:1065756670652854302>"),
+    discord.SelectOption(label="Ethiopia Menelik", emoji="<:1065754611706757232>"),
+    discord.SelectOption(label="Aztec Montezuma", emoji="<:1065754555024937090>"),
+    discord.SelectOption(label="China Qin Unifier", emoji="<:1065754582816395436>"),
+    discord.SelectOption(label="Scotland Robert The Bruce", emoji="<:1065811537303969913>"),
+
+    discord.SelectOption(label="Arabia Sultan", emoji="<:1065754545470324897>"),
+    discord.SelectOption(label="Korea Seondeok", emoji="<:1065756656476098672>"),
+    discord.SelectOption(label="Zulu Shaka", emoji="<:1065811565904936991>"),
+    discord.SelectOption(label="Ottoman Suleiman", emoji="<:1065811501052596378>"),
+    discord.SelectOption(label="Ottoman Muhtesem", emoji="<:1065811503514648576>"),
+
+    discord.SelectOption(label="Greece Gorgo", emoji="<:1065756618928701440"),
+    discord.SelectOption(label="Rome Caesar", emoji="<:1065811525119528981>"),
+    discord.SelectOption(label="Gran Colombia Simon Bolivar", emoji="<:1065754592182272030"),
+    discord.SelectOption(label="America Teddy Bull Moose", emoji="<:1065754539308879973"),
+    discord.SelectOption(label="America Teddy Rough Rider", emoji="<:1065754542630764674>")
 ]
 
 
