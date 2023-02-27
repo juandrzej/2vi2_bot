@@ -23,7 +23,6 @@ civ_list = [
     discord.SelectOption(label="Persia"),
     discord.SelectOption(label="Poland"),
     discord.SelectOption(label="EPtolemaic-Cleopatra"),
-
     discord.SelectOption(label="Zulu")
 ]
 
@@ -36,14 +35,14 @@ class ReportView(View):
         self.report_civs = ["Empty", "Empty", "Empty", "Empty", "Empty"]
         self.report_info = [self.author, self.players, self.report_civs]
 
-        self.add_item(CivSelect("1", "Choose civ picked by Team 1 Slot 1 player!", self.report_info))
-        self.add_item(CivSelect("2", "Choose civ picked by Team 2 Slot 2 player!", self.report_info))
-        self.add_item(CivSelect("3", "Choose civ picked by Team 2 Slot 3 player!", self.report_info))
-        self.add_item(CivSelect("4", "Choose civ picked by Team 1 Slot 4 player!", self.report_info))
+        self.add_item(CivSelect("1", f"Choose civ picked by Slot 1 {self.players[0].name}", self.report_info))
+        self.add_item(CivSelect("2", f"Choose civ picked by Slot 2 {self.players[1].name}", self.report_info))
+        self.add_item(CivSelect("3", f"Choose civ picked by Slot 3 {self.players[2].name}", self.report_info))
+        self.add_item(CivSelect("4", f"Choose civ picked by Slot 4 {self.players[3].name}", self.report_info))
 
     @discord.ui.select(
         custom_id="0",
-        placeholder="Choose two banned civilizations!",
+        placeholder="Choose two banned civilizations",
         min_values=2,
         max_values=2,
         options=civ_list)
@@ -56,10 +55,10 @@ class ReportView(View):
             await interaction.edit_original_response(
                 content=f'GameType 2vi2'
                         f'\n Bans: {self.report_civs[0]}'
-                        f'\n T1 slot 1: {self.report_civs[1]} {self.players[0].mention}'
-                        f'\n T2 slot 2: {self.report_civs[2]} {self.players[1].mention}'
-                        f'\n T2 slot 3: {self.report_civs[3]} {self.players[2].mention}'
-                        f'\n T1 slot 4: {self.report_civs[4]} {self.players[3].mention}',
+                        f'\n T1 slot 1: {self.players[0].mention} {self.report_civs[1]}'
+                        f'\n T2 slot 2: {self.players[1].mention} {self.report_civs[2]}'
+                        f'\n T2 slot 3: {self.players[2].mention} {self.report_civs[3]}'
+                        f'\n T1 slot 4: {self.players[3].mention} {self.report_civs[4]}',
                 view=Confirm(self.report_info))
 
     async def interaction_check(self, interaction: discord.Interaction) -> bool:
@@ -87,10 +86,10 @@ class CivSelect(Select):
             await interaction.edit_original_response(
                 content=f'GameType 2vi2'
                         f'\n Bans: {self.report_civs[0]}'
-                        f'\n T1 slot 1: {self.report_civs[1]} {self.players[0].mention}'
-                        f'\n T2 slot 2: {self.report_civs[2]} {self.players[1].mention}'
-                        f'\n T2 slot 3: {self.report_civs[3]} {self.players[2].mention}'
-                        f'\n T1 slot 4: {self.report_civs[4]} {self.players[3].mention}',
+                        f'\n T1 slot 1: {self.players[0].mention} {self.report_civs[1]}'
+                        f'\n T2 slot 2: {self.players[1].mention} {self.report_civs[2]}'
+                        f'\n T2 slot 3: {self.players[2].mention} {self.report_civs[3]}'
+                        f'\n T1 slot 4: {self.players[3].mention} {self.report_civs[4]}',
                 view=Confirm(self.report_info))
 
 
@@ -121,10 +120,10 @@ class PlayerDDView(View):
                         f'\n Winning team: {self.choices[0]}'
                         f'\n Host: {self.choices[1].mention}'
                         f'\n Bans: {self.report_civs[0]}'
-                        f'\n T1 slot 1: {self.report_civs[1]} {self.players[0].mention}'
-                        f'\n T2 slot 2: {self.report_civs[2]} {self.players[1].mention}'
-                        f'\n T2 slot 3: {self.report_civs[3]} {self.players[2].mention}'
-                        f'\n T1 slot 4: {self.report_civs[4]} {self.players[3].mention}',
+                        f'\n T1 slot 1: {self.players[0].mention} {self.report_civs[1]}'
+                        f'\n T2 slot 2: {self.players[1].mention} {self.report_civs[2]}'
+                        f'\n T2 slot 3: {self.players[2].mention} {self.report_civs[3]}'
+                        f'\n T1 slot 4: {self.players[3].mention} {self.report_civs[4]}',
                 view=SecondConfirm(self.report_info))
 
     async def interaction_check(self, interaction: discord.Interaction) -> bool:
@@ -158,10 +157,10 @@ class PlayerDD(Select):
                         f'\n Winning team: {self.choices[0]}'
                         f'\n Host: {self.choices[1].mention}'
                         f'\n Bans: {self.report_civs[0]}'
-                        f'\n T1 slot 1: {self.report_civs[1]} {self.players[0].mention}'
-                        f'\n T2 slot 2: {self.report_civs[2]} {self.players[1].mention}'
-                        f'\n T2 slot 3: {self.report_civs[3]} {self.players[2].mention}'
-                        f'\n T1 slot 4: {self.report_civs[4]} {self.players[3].mention}',
+                        f'\n T1 slot 1: {self.players[0].mention} {self.report_civs[1]}'
+                        f'\n T2 slot 2: {self.players[1].mention} {self.report_civs[2]}'
+                        f'\n T2 slot 3: {self.players[2].mention} {self.report_civs[3]}'
+                        f'\n T1 slot 4: {self.players[3].mention} {self.report_civs[4]}',
                 view=SecondConfirm(self.report_info))
 
     async def interaction_check(self, interaction: discord.Interaction) -> bool:
@@ -181,10 +180,10 @@ class Confirm(View):
         await interaction.response.edit_message(
             content=f'GameType 2vi2'
                     f'\n Bans: {self.report_civs[0]}'
-                    f'\n T1 slot 1: {self.report_civs[1]} {self.players[0].mention}'
-                    f'\n T2 slot 2: {self.report_civs[2]} {self.players[1].mention}'
-                    f'\n T2 slot 3: {self.report_civs[3]} {self.players[2].mention}'
-                    f'\n T1 slot 4: {self.report_civs[4]} {self.players[3].mention}',
+                    f'\n T1 slot 1: {self.players[0].mention} {self.report_civs[1]}'
+                    f'\n T2 slot 2: {self.players[1].mention} {self.report_civs[2]}'
+                    f'\n T2 slot 3: {self.players[2].mention} {self.report_civs[3]}'
+                    f'\n T1 slot 4: {self.players[3].mention} {self.report_civs[4]}',
             view=PlayerDDView(self.report_info))
 
     @discord.ui.button(label="Go Back", style=discord.ButtonStyle.red)
@@ -192,10 +191,10 @@ class Confirm(View):
         await interaction.response.edit_message(
             content=f'GameType 2vi2'
                     f'\n Bans: {self.report_civs[0]}'
-                    f'\n T1 slot 1: {self.report_civs[1]} {self.players[0].mention}'
-                    f'\n T2 slot 2: {self.report_civs[2]} {self.players[1].mention}'
-                    f'\n T2 slot 3: {self.report_civs[3]} {self.players[2].mention}'
-                    f'\n T1 slot 4: {self.report_civs[4]} {self.players[3].mention}',
+                    f'\n T1 slot 1: {self.players[0].mention} {self.report_civs[1]}'
+                    f'\n T2 slot 2: {self.players[1].mention} {self.report_civs[2]}'
+                    f'\n T2 slot 3: {self.players[2].mention} {self.report_civs[3]}'
+                    f'\n T1 slot 4: {self.players[3].mention} {self.report_civs[4]}',
             view=ReportView(self.report_info))
 
 
@@ -215,10 +214,10 @@ class SecondConfirm(View):
                         f'\n Winning team: {self.choices[0]}'
                         f'\n Host: {self.choices[1].mention}'
                         f'\n Bans: {self.report_civs[0]}'
-                        f'\n T1 slot 1: {self.report_civs[1]} {self.players[0].mention}'
-                        f'\n T2 slot 2: {self.report_civs[2]} {self.players[1].mention}'
-                        f'\n T2 slot 3: {self.report_civs[3]} {self.players[2].mention}'
-                        f'\n T1 slot 4: {self.report_civs[4]} {self.players[3].mention}',
+                        f'\n T1 slot 1: {self.players[0].mention} {self.report_civs[1]}'
+                        f'\n T2 slot 2: {self.players[1].mention} {self.report_civs[2]}'
+                        f'\n T2 slot 3: {self.players[2].mention} {self.report_civs[3]}'
+                        f'\n T1 slot 4: {self.players[3].mention} {self.report_civs[4]}',
                 view=None)
 
         message = await interaction.followup.send(
@@ -242,8 +241,8 @@ class SecondConfirm(View):
                     f'\n Winning team: {self.choices[0]}'
                     f'\n Host: {self.choices[1].mention}'
                     f'\n Bans: {self.report_civs[0]}'
-                    f'\n T1 slot 1: {self.report_civs[1]} {self.players[0].mention}'
-                    f'\n T2 slot 2: {self.report_civs[2]} {self.players[1].mention}'
-                    f'\n T2 slot 3: {self.report_civs[3]} {self.players[2].mention}'
-                    f'\n T1 slot 4: {self.report_civs[4]} {self.players[3].mention}',
+                    f'\n T1 slot 1: {self.players[0].mention} {self.report_civs[1]}'
+                    f'\n T2 slot 2: {self.players[1].mention} {self.report_civs[2]}'
+                    f'\n T2 slot 3: {self.players[2].mention} {self.report_civs[3]}'
+                    f'\n T1 slot 4: {self.players[3].mention} {self.report_civs[4]}',
             view=PlayerDDView(self.report_info))
