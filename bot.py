@@ -26,22 +26,23 @@ async def report(ctx, member1: discord.Member, member2: discord.Member,
 
 @bot.event
 async def on_reaction_add(reaction, user):
-    message = reaction.message
-    if message.author.id == 1079843505049980930:
-        players = message.mentions
-        if reaction.emoji == '👍':
-            if user.id in [player.id for player in players]:
-                players = [player for player in players if player.id != user.id]
-                if any(players):
-                    await message.edit(
-                        content=f"Players pending confirmation: "
-                                f"{','.join([player.mention for player in players])}"
-                    )
-                else:
-                    await message.edit(content=f"All players reacted; report has been produced.")
-                    channel = message.channel
-                    async for mes in channel.history(limit=1, before=message):
-                        await mes.add_reaction('✅')
+    if reaction.channel.id == 1079879823725432852:
+        message = reaction.message
+        if message.author.id == 1079843505049980930:
+            players = message.mentions
+            if reaction.emoji == '👍':
+                if user.id in [player.id for player in players]:
+                    players = [player for player in players if player.id != user.id]
+                    if any(players):
+                        await message.edit(
+                            content=f"Players pending confirmation: "
+                                    f"{','.join([player.mention for player in players])}"
+                        )
+                    else:
+                        await message.edit(content=f"All players reacted; report has been produced.")
+                        channel = message.channel
+                        async for mes in channel.history(limit=1, before=message):
+                            await mes.add_reaction('✅')
 
 
 bot.run(TOKEN)
