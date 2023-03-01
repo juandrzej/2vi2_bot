@@ -1,63 +1,7 @@
 import discord
 from discord.ui import View, Select
 
-civ_list = [
-    discord.SelectOption(label="France Catherine-Magnificent",
-                         emoji="<:FranceCatherineMagnificent:1065756603728547871>"),
-    discord.SelectOption(label="France Eleanor",
-                         emoji="<:FranceEleanor:1065756606102503434>"),
-    discord.SelectOption(label="India Chandragupta",
-                         emoji="<:IndiaChandragupta:1065756632140750889>"),
-    discord.SelectOption(label="Persia Cyrus",
-                         emoji="<:PersiaCyrus:1065811506702327919>"),
-    discord.SelectOption(label="Persia Nader-Shah",
-                         emoji="<:PersiaNader:1065811511118942258>"),
-
-    discord.SelectOption(label="Egypt Ptolemaic-Cleopatra",
-                         emoji="<:EgyptPtolemaicCleopatra:1076186904799748178>"),
-    discord.SelectOption(label="Egypt Ramses",
-                         emoji="<:EgyptRamses:1076186907668648010>"),
-    discord.SelectOption(label="Sumeria Gilgamesh",
-                         emoji="<:SumeriaGilgamesh:1065811548444049518>"),
-    discord.SelectOption(label="Mongolia Genghis-Khan",
-                         emoji="<:MongoliaGenghisKhan:1065756676621344778>"),
-    discord.SelectOption(label="Mongolia Kublai-Khan",
-                         emoji="<:MongoliaKublaiKhan:1065756680144568320>"),
-
-    discord.SelectOption(label="Mapuche Lautaro",
-                         emoji="<:MapucheLautaro:1065756670652854302>"),
-    discord.SelectOption(label="Ethiopia Menelik",
-                         emoji="<:EthiopiaMenelik:1065754611706757232>"),
-    discord.SelectOption(label="Aztec Montezuma",
-                         emoji="<:AztecMontezuma:1065754555024937090>"),
-    discord.SelectOption(label="China Qin-Unifier",
-                         emoji="<:ChinaQinUnifier:1065754582816395436>"),
-    discord.SelectOption(label="Scotland Robert-The-Bruce",
-                         emoji="<:ScotlandRobertTheBruce:1065811537303969913>"),
-
-    discord.SelectOption(label="Arabia Saladin-Sultan",
-                         emoji="<:ArabiaSultan:1065754545470324897>"),
-    discord.SelectOption(label="Korea Seondeok",
-                         emoji="<:KoreaSeondeok:1065756656476098672>"),
-    discord.SelectOption(label="Zulu Shaka",
-                         emoji="<:ZuluShaka:1065811565904936991>"),
-    discord.SelectOption(label="Ottoman Suleiman-Kanuni",
-                         emoji="<:OttomanSuleiman:1065811501052596378>"),
-    discord.SelectOption(label="Ottoman Suleiman-Muhtesem",
-                         emoji="<:OttomanMuhtesem:1065811503514648576>"),
-
-    discord.SelectOption(label="Greece Gorgo",
-                         emoji="<:GreeceGorgo:1065756618928701440>"),
-    discord.SelectOption(label="Rome Julius-Caesar",
-                         emoji="<:RomeCaesar:1065811525119528981>"),
-    discord.SelectOption(label="Gran-Colombia Simon-Bolivar",
-                         emoji="<:GranColombiaSimonBolivar:1065754592182272030>"),
-    discord.SelectOption(label="America Teddy-Bull-Moose",
-                         emoji="<:AmericaTeddyBullMoose:1065754539308879973>"),
-    discord.SelectOption(label="America Teddy-Rough-Rider",
-                         emoji="<:AmericaTeddyRoughRider:1065754542630764674>")
-
-]
+from civ_list import civ_list
 
 
 class ReportView(View):
