@@ -1,3 +1,16 @@
 /.env
 /civ_list_test.py
 /bot_test.py
+/venv/
+/.idea/.gitignore
+/bot_excel.py
+/dd.py
+/local_history.patch
+/local_history1.patch
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/pythonProject1.iml
+/server_bot.py
+/test.py
+/.idea/vcs.xml
