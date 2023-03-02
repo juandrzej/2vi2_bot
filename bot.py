@@ -45,6 +45,13 @@ async def on_reaction_add(reaction, user):
     message = reaction.message
     if message.channel.id == CHANNEL_ID_2VI2:
         if message.author.id == BOT_ID:
+
+            if reaction.emoji == '✅' and user.id in REPORTS_IDS:
+                channel = message.channel
+                async for mes in channel.history(limit=1, before=message):
+                    await mes.add_reaction('✅')
+                await message.delete()
+
             players = message.mentions
             if reaction.emoji == '👍':
                 if user.id in [player.id for player in players]:
@@ -55,10 +62,10 @@ async def on_reaction_add(reaction, user):
                                     f"{','.join([player.mention for player in players])}"
                         )
                     else:
-                        await message.edit(content=f"All players reacted; report has been produced.")
                         channel = message.channel
                         async for mes in channel.history(limit=1, before=message):
                             await mes.add_reaction('✅')
+                        await message.delete()
 
             if reaction.emoji == '✅':
                 if user.id == BOT_ID:
