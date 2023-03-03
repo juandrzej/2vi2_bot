@@ -27,6 +27,7 @@ def excel_writer(reports):
     xws.cell(row=last_row+1, column=1, value=last_row)
     xws.cell(row=last_row+1, column=2, value=reports[0])
     xws.cell(row=last_row+1, column=3, value=reports[1])
+    xws.cell(row=last_row+1, column=4, value=reports[2])
     xwb.save(xname)
 
 
@@ -71,7 +72,11 @@ async def on_reaction_add(reaction, user):
                 if user.id == BOT_ID:
                     now = datetime.now()
                     now = now.strftime("%Y-%m-%d %H:%M:%S")
-                    games_reports = [now, message.content]
+
+                    players_names = message.mentions
+                    player_names = [player.name for player in players_names]
+                    players_names = ', '.join(player_names)
+                    games_reports = [now, message.content, players_names]
                     excel_writer(games_reports)
 
                     lines = message.content.splitlines()
