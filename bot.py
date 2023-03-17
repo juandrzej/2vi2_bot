@@ -49,8 +49,8 @@ def get_team(team_name, report, players):
 
     team_players = []
     for player in players:
-        if player.discord_id in team_civilizations:
-            player.set_civilization(team_civilizations[player.discord_id])
+        if player.discordId in team_civilizations:
+            player.set_civilization(team_civilizations[player.discordId])
             team_players.append(player)
 
     status = TeamGameStatus
@@ -64,7 +64,7 @@ def get_team(team_name, report, players):
 
     banned_civs = report.split("\n")[3].split(": ")[1].split(",")
 
-    team = Team("Team " + team_name, team_players, [banned_civs[int(team_name) - 1]], status)
+    team = Team("Team " + team_name, team_players, [banned_civs[int(team_name) - 1].replace(' ', '')], status)
 
     return team
 
