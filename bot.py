@@ -26,10 +26,10 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 def parse_message_to_game(date, report, players):
     tournament_name = 'Season 2 - Tournament 2x2'
     players = [
-        Player(players[0].id, players[0].name),
-        Player(players[1].id, players[1].name),
-        Player(players[2].id, players[2].name),
-        Player(players[3].id, players[3].name)
+        Player(str(players[0].id), players[0].name),
+        Player(str(players[1].id), players[1].name),
+        Player(str(players[2].id), players[2].name),
+        Player(str(players[3].id), players[3].name)
     ]
 
     team1 = get_team("1", report, players)
@@ -49,8 +49,8 @@ def get_team(team_name, report, players):
 
     team_players = []
     for player in players:
-        if player.discordId in team_civilizations:
-            player.set_civilization(team_civilizations[player.discordId])
+        if str(player.discordId) in team_civilizations:
+            player.set_civilization(team_civilizations[str(player.discordId)])
             team_players.append(player)
 
     status = TeamGameStatus
@@ -150,7 +150,7 @@ async def on_reaction_add(reaction, user):
                     mod_report = '\n'.join(selected_lines)
                     await mod_channel.send(mod_report)
 
-                    game = parse_message_to_game(now, message.content, players_names)
+                    game = parse_message_to_game(now, message.content, players)
                     await post_game_to_civplays(game)
 
 
